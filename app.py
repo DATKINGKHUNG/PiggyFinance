@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import google.generativeai as genai
 from dotenv import load_dotenv
 
+
 load_dotenv()  # Load environment variables from .env file
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") 
@@ -269,4 +270,4 @@ def ask_gemini():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)
