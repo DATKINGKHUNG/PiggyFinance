@@ -21,7 +21,7 @@ This is a web app project for personal expense management using Flask, supportin
 ## Local Setup & Run
 ```bash
 # Clone the repo
-https://github.com/DATKINGKHUNG/demo.git
+https://github.com/DATKINGKHUNG/PiggyFinance
 cd demo
 
 # Create a virtual environment
