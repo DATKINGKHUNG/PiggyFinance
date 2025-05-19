@@ -1,0 +1,38 @@
+{
+    "expenses": [
+        {
+            "id": "81cb0f09-9099-47a0-b3de-6b487938981f",
+            "amount": 20000.0,
+            "category": "Ăn uống",
+            "note": "",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "575d562c-9ab8-4fab-a389-932e4ada1a9a",
+            "amount": 20000.0,
+            "category": "Ăn uống",
+            "note": "",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "4cea740c-9429-4ae4-810d-a0947b6b2593",
+            "amount": 40000.0,
+            "category": "Ăn uống",
+            "note": "",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "fbef0b8f-554c-4121-b2eb-3ca424c5f76c",
+            "amount": 10000.0,
+            "category": "Ăn uống",
+            "note": "",
+            "date": "18/05/2025"
+        }
+    ],
+    "categories": [
+        "Ăn uống",
+        "Giải trí",
+        "Di chuyển",
+        "Khác"
+    ]
+}

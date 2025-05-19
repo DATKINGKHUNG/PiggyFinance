@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4 text-white fw-bold">📝 Quản lý Chi tiêu</h2>
+
+<!-- Form thêm chi tiêu -->
+<div class="card mb-4 shadow-sm border-0 floating" style="background-color: rgba(255,255,255,0.95);">
+    <div class="card-header bg-primary bg-opacity-10 border-0">
+        <h5 class="mb-0" style="color: #3a7bd5;"><i class="bi bi-plus-circle me-2"></i>Thêm chi tiêu mới</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">💰 Số tiền (VND)</label>
+                    <input type="number" class="form-control" name="amount" required
+                           style="background-color: rgba(255,255,255,0.9); color: #2c3e50;">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">🏷️ Danh mục</label>
+                    <select class="form-select" name="category" required
+                            style="background-color: rgba(255,255,255,0.9); color: #2c3e50;">
+                        {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">📝 Ghi chú (nếu có)</label>
+                    <input type="text" class="form-control" name="note" placeholder="Mua gì? Ở đâu?"
+                           style="background-color: rgba(255,255,255,0.9); color: #2c3e50;">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">📅 Ngày</label>
+                    <input type="text" class="form-control" name="date" 
+                           style="background-color: rgba(255,255,255,0.9); color: #2c3e50;"
+                           value="{{ now.strftime('%d/%m/%Y') }}"
+                           placeholder="dd/mm/yyyy">
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100 py-3" style="background: #3a7bd5; border: none;">
+                        <i class="bi bi-save me-2"></i>Lưu chi tiêu
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Danh sách chi tiêu -->
+<h4 class="mb-3 text-white fw-semibold">📋 Lịch sử Chi tiêu</h4>
+<div class="table-responsive shadow-sm rounded" style="background-color: rgba(255,255,255,0.95);">
+    <table class="table table-hover mb-0">
+        <thead class="table-primary">
+            <tr>
+                <th>📅 Ngày</th>
+                <th>🏷️ Danh mục</th>
+                <th>💰 Số tiền</th>
+                <th>📝 Ghi chú</th>
+                <th>❌ Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.category }}</td>
+                <td>{{ "{:,.0f}".format(expense.amount) }} VND</td>
+                <td>{{ expense.note }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('delete_expense', expense_id=expense.id) }}">
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash me-1"></i>Xóa
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

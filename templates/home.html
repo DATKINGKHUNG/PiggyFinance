@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center text-white">
+        <h1 class="mb-3 fw-bold" style="color: #ffffff;">DATKINGKHUNG</h1>
+        <p class="lead mb-4" style="color: #dbeafe;">Quản lý chi tiêu của anh Đạt</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mb-4 shadow-sm border-0 floating" style="background-color: var(--card-bg);">
+                    <div class="card-body text-center">
+                        <i class="bi bi-piggy-bank-fill" style="font-size: 4rem; color: #3a7bd5;"></i>
+                        <h3 class="mt-3" style="color: var(--text-primary);">Bắt đầu</h3>
+                        <div class="d-grid gap-3 mt-4">
+                            <a href="{{ url_for('expenses') }}" class="btn btn-primary btn-lg" style="background: #3a7bd5; border: none;">
+                                <i class="bi bi-plus-circle me-2"></i>Thêm chi tiêu mới
+                            </a>
+                            <a href="{{ url_for('stats') }}" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-bar-chart me-2"></i>Xem thống kê
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bubble style section -->
+                <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
+                    <div class="bubble px-3 py-2 rounded-pill shadow-sm" style="background-color: #e0f0ff; color: #3a7bd5;">
+                        <i class="bi bi-coin me-1"></i>Tiết kiệm
+                    </div>
+                    <div class="bubble px-3 py-2 rounded-pill shadow-sm" style="background-color: #e0f0ff; color: #3a7bd5;">
+                        <i class="bi bi-cup-hot me-1"></i>Vui vẻ
+                    </div>
+                    <div class="bubble px-3 py-2 rounded-pill shadow-sm" style="background-color: #e0f0ff; color: #3a7bd5;">
+                        <i class="bi bi-graph-up me-1"></i>Thông minh
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
