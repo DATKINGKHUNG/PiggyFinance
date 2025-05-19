@@ -245,7 +245,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            aiResponse.innerHTML = `<div class="ai-response-content">${data.response.replace(/\n/g, '<br>')}</div>`;
+            // Thay đổi cách hiển thị response ở đây
+            const rawResponse = data.response || "Không có phản hồi";
+            // Sử dụng marked để chuyển markdown thành HTML
+            const htmlResponse = marked.parse(rawResponse);
+            // Tạo một div tạm để xử lý HTML an toàn
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmlResponse;
+            // Làm sạch HTML để tránh XSS (nếu cần)
+            aiResponse.innerHTML = tempDiv.innerHTML;
+
         } catch (error) {
             console.error('Lỗi:', error);
             showError(`Lỗi kết nối: ${error.message}`);
@@ -289,9 +298,67 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-.ai-response-content {
+#aiResponse {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
     line-height: 1.6;
-    white-space: pre-wrap;
+}
+
+#aiResponse h1, 
+#aiResponse h2, 
+#aiResponse h3, 
+#aiResponse h4, 
+#aiResponse h5, 
+#aiResponse h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: #3a7bd5;
+}
+
+#aiResponse p {
+    margin-bottom: 1em;
+}
+
+#aiResponse ul, 
+#aiResponse ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+#aiResponse li {
+    margin-bottom: 0.5em;
+}
+
+#aiResponse strong {
+    font-weight: 600;
+}
+
+#aiResponse em {
+    font-style: italic;
+}
+
+#aiResponse code {
+    background-color: rgba(58, 123, 213, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+#aiResponse pre {
+    background-color: rgba(30, 30, 30, 0.05);
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+#aiResponse blockquote {
+    border-left: 3px solid #3a7bd5;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #4a5568;
+    font-style: italic;
 }
 </style>
 
