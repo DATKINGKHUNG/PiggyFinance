@@ -1,3 +1,14 @@
+/*
+    Expense data storage file.
+    Structure:
+    - expenses: Array of expense objects
+        - id: Unique identifier (UUID)
+        - amount: Expense amount (float)
+        - category: Expense category
+        - note: Optional description
+        - date: Date in 'dd/mm/yyyy' format
+    - categories: Array of available category names
+*/
 {
     "expenses": [
         {
