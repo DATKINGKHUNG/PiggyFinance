@@ -1,24 +1,3 @@
-"""
-Expense Management Flask Application.
-
-This application allows users to:
-- Track daily expenses
-- View spending statistics
-- Get financial advice through AI integration
-
-Main components:
-- Data persistence in JSON format
-- CRUD operations for expenses
-- Statistical analysis
-- Gemini AI integration for financial advice
-
-Routes:
-- /, /home: Home page
-- /expenses: Expense management
-- /stats: Statistics and analytics
-- /ask-gemini: AI financial advice endpoint
-"""
-
 import os
 import json
 import uuid
@@ -43,15 +22,9 @@ DATA_FILE = "expense_data.json"
 
 # Hàm tiện ích
 def load_data():
-"""
-Load expense data from JSON file.
-    
-Returns:
-    dict: Dictionary containing:
-    - expenses: List of expense records
-    - categories: List of available categories
-Default structure if file doesn't exist or is invalid
-"""
+    """
+    Hàm này tải dữ liệu chi tiêu từ một nguồn.
+    """
     if not os.path.exists(DATA_FILE):
         return {
             'expenses': [],
@@ -74,12 +47,6 @@ Default structure if file doesn't exist or is invalid
         }
 
 def save_data(data):
-"""
-Save expense data to JSON file.
-    
-Args:
-data (dict): Data to be saved, should match load_data() structure
-"""
     try:
         with open(DATA_FILE, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
@@ -88,15 +55,6 @@ data (dict): Data to be saved, should match load_data() structure
         # Có thể raise lại exception nếu cần dừng chương trình:  raise
 
 def parse_date(date_str):
-"""
-Parse date string into datetime object.
-    
-Args:
-    date_str (str): Date string in 'dd/mm/yyyy' format
-        
-Returns:
-    datetime: Parsed datetime object, current date if parsing fails
-"""
     """Hàm này cố gắng chuyển đổi chuỗi ngày tháng sang đối tượng datetime."""
     try:
         return datetime.strptime(date_str, '%d/%m/%Y')
@@ -114,26 +72,15 @@ def inject_now():
 # Routes
 @app.route('/')
 def index():
-"""Redirect to home page."""
     return redirect(url_for('home'))
 
 @app.route('/home')
 def home():
-"""Render home page with welcome message and quick actions."""
-"""Trang chủ"""
+    """Trang chủ"""
     return render_template('home.html')
 
 @app.route('/expenses', methods=['GET', 'POST'])
 def expenses():
-"""
-Handle expense management (view/add).
-    
-GET: Shows expense form and history
-POST: Processes new expense submission
-    
-Returns:
-Rendered template or redirect
-"""
     """Quản lý chi tiêu (thêm/xem)"""
     data = load_data()
     
@@ -198,17 +145,6 @@ def get_most_expensive_category(expenses):
 
 @app.route('/stats')
 def stats():
-    """
-    Show spending statistics and analytics.
-    
-    Supports time filtering via URL parameter:
-    - ?filter=all (default)
-    - ?filter=year
-    - ?filter=month
-    
-    Returns:
-        Rendered template with statistical data
-    """
     """Thống kê chi tiêu"""
     time_filter = request.args.get('filter', 'all')  # Lấy bộ lọc từ tham số 'filter'
     data = load_data()
@@ -295,16 +231,6 @@ def add_expense():
 
 @app.route('/ask-gemini', methods=['POST'])
 def ask_gemini():
-    """
-    Process AI financial advice requests.
-    
-    Expects JSON with:
-    - input_text: User's question
-    - current_filter: Time filter context
-    
-    Returns:
-        JSON response from Gemini AI
-    """
     """
     Nhận yêu cầu từ người dùng, truy vấn Gemini API và trả về phản hồi.
     """
