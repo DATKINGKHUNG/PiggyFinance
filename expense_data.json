@@ -1,32 +1,39 @@
 {
     "expenses": [
         {
-            "id": "81cb0f09-9099-47a0-b3de-6b487938981f",
+            "id": "05fc2286-a041-44b2-b0ba-2509b89dd541",
             "amount": 20000.0,
             "category": "Ăn uống",
-            "note": "",
+            "note": "Phở trộn ktx, ăn sáng",
             "date": "19/05/2025"
         },
         {
-            "id": "575d562c-9ab8-4fab-a389-932e4ada1a9a",
+            "id": "5a29a318-339d-4f14-b41c-c8d6f3fae3d0",
+            "amount": 15000.0,
+            "category": "Ăn uống",
+            "note": "nước cam buổi trưa",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "4d1fd266-388b-4db0-9b27-49ed8c0cd313",
+            "amount": 30000.0,
+            "category": "Ăn uống",
+            "note": "cơm bò xào buổi trưa",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "7fa8dfa5-bc79-4787-91df-40cc6e3db111",
+            "amount": 30000.0,
+            "category": "Ăn uống",
+            "note": "bún chả ktx",
+            "date": "19/05/2025"
+        },
+        {
+            "id": "5a98402a-f473-4c6e-9a5a-c5b88a0f6810",
             "amount": 20000.0,
             "category": "Ăn uống",
-            "note": "",
+            "note": "matcha latte buổi tối ktx",
             "date": "19/05/2025"
-        },
-        {
-            "id": "4cea740c-9429-4ae4-810d-a0947b6b2593",
-            "amount": 40000.0,
-            "category": "Ăn uống",
-            "note": "",
-            "date": "19/05/2025"
-        },
-        {
-            "id": "fbef0b8f-554c-4121-b2eb-3ca424c5f76c",
-            "amount": 10000.0,
-            "category": "Ăn uống",
-            "note": "",
-            "date": "18/05/2025"
         }
     ],
     "categories": [
