@@ -1,3 +1,4 @@
+{
 /*
     Expense data storage file.
     Structure:
@@ -9,7 +10,6 @@
         - date: Date in 'dd/mm/yyyy' format
     - categories: Array of available category names
 */
-{
     "expenses": [
         {
             "id": "81cb0f09-9099-47a0-b3de-6b487938981f",
