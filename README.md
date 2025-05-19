@@ -36,7 +36,7 @@ python app.py
 # or use gunicorn
 # gunicorn app:app
 ```
-Visit: https://demo-production-4164.up.railway.app/expenses
+Visit: https://piggyfinance-production.up.railway.app/home
 
 ## Deploy on Railway
 1. Push your code to GitHub
